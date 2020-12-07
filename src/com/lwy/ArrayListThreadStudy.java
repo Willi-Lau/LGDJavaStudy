@@ -1,7 +1,9 @@
 package com.lwy;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 public class ArrayListThreadStudy {
     /**
@@ -18,17 +20,56 @@ public class ArrayListThreadStudy {
      */
 
     public static void main(String[] args) {
-         //ArayList 多线程不安全的例子
+        HashMapThread();
+//        HashSetThread();
+//        ArrayListThread();
+    }
+    private static void HashMapThread(){
+        //HashMap 线程不安全的例子
+
+        HashMap hashMap = new HashMap();
+
+        //线程安全
+        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+
+        for (int i = 0; i < 10; i++) {
+            new Thread(()->{
+                concurrentHashMap.put(Thread.currentThread().getName(),UUID.randomUUID().toString().substring(0,8));
+                System.out.println(Thread.currentThread().getName()+concurrentHashMap);
+            },"线程："+Integer.toString(i)).start();
+        }
+
+
+    }
+    private static void HashSetThread(){
+        //HashSet 线程不安全的例子
+        //HashSet 底层是一个 HashMap
+        HashSet<String> hashSet = new HashSet<>();
+        //改正措施
+        CopyOnWriteArraySet<Object> arraySet = new CopyOnWriteArraySet<>();
+
+        for (int i = 0; i < 10; i++) {
+            new Thread(()->{
+                arraySet.add(UUID.randomUUID().toString().substring(0,8));
+                System.out.println(Thread.currentThread().getName()+arraySet);
+            },"线程："+Integer.toString(i)).start();
+        }
+
+
+    }
+
+    private static void ArrayListThread() {
+        //ArayList 多线程不安全的例子
         //此程序是一共10个线程，每一个线程添加一个随机码，所以list里应该有不为null的随机码（里面的值有几个不一定看线程抢东西的能力）,并且不报错
         //不安全
-        List <String> list = new ArrayList();
+        List<String> list = new ArrayList();
         //解决办法1
         List <String> list1 = Collections.synchronizedList(new ArrayList<>());
         //解决办法2
-        List <String> vector = new  Vector <>();
+        List <String> vector = new Vector<>();
         //解决办法3
         //新的线程安全实现类 JUC下
-         List<String> list2 = new CopyOnWriteArrayList<>();
+        List<String> list2 = new CopyOnWriteArrayList<>();
         //开启十个线程
         for (int i = 1; i <=10 ; i++) {
             new Thread(()->{
