@@ -1,4 +1,4 @@
-package com.lwy;
+package com.lwy.Java8;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

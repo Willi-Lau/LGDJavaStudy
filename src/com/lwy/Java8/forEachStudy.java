@@ -1,4 +1,4 @@
-package com.lwy;
+package com.lwy.Java8;
 
 import java.util.ArrayList;
 import java.util.List;
