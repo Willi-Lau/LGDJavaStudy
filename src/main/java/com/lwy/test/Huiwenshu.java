@@ -16,6 +16,7 @@ public class Huiwenshu {
     }
 
 
+
     //循环
     public int LongestStr(String str){
         int flag=0;
