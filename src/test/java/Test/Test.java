@@ -1,11 +1,29 @@
 package Test;
 
-public class Test {
-    public static void main(String[] args) {
-        System.out.println("qwe".substring(0,1));
-        System.out.println(15/2);
+import java.util.*;
 
-        String s = "asda";
+public class Test {
+
+
+    public static void main(String[] args) {
+        Map map = new HashMap();
+        map.put("1","www");
+        map.put("2","yyy");
+        map.forEach((x,y)->{
+            System.out.println(x);
+            System.out.println(y);
+        });
+
+        Integer i= 128;
+        Integer j = 128;
+        Integer m= 127;
+        Integer n = 127;
+        System.out.println(i==j);
+        System.out.println(m==n);
+
+
+
 
     }
+
 }
