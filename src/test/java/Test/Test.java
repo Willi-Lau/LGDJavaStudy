@@ -6,20 +6,15 @@ public class Test {
 
 
     public static void main(String[] args) {
-        Map map = new HashMap();
-        map.put("1","www");
-        map.put("2","yyy");
-        map.forEach((x,y)->{
-            System.out.println(x);
-            System.out.println(y);
-        });
+     List list =  new ArrayList();
 
-        Integer i= 128;
-        Integer j = 128;
-        Integer m= 127;
-        Integer n = 127;
-        System.out.println(i==j);
-        System.out.println(m==n);
+     for (int i=0;i<=10;i++){
+         new Thread(()->{
+             list.add(UUID.randomUUID().toString().substring(0,8));
+             System.out.println(Thread.currentThread().getName()+list);
+         },Integer.toString(i)).start();
+     }
+
 
 
 
