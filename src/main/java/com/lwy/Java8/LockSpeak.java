@@ -14,7 +14,8 @@ class butticket{
          try {
              if(ticket >0){
 
-             System.out.println(Thread.currentThread().getName()+"卖出第"+ticket--+"票");
+             System.out.println(Thread.currentThread().getName()+"卖出第"+ticket+"票");
+             ticket--;
 
              }
          } catch (Exception e) {
