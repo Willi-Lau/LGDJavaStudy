@@ -1,4 +1,4 @@
-package com.lwy.Java8;
+package com.lwy.JVM;
 
 class Demo{
     //int flag = 10;  //错误的定义  别的线程看不到值得改变

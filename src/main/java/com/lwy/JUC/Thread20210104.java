@@ -1,4 +1,4 @@
-package com.lwy.Java8;
+package com.lwy.JUC;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Condition;
