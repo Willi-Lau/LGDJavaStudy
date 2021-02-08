@@ -15,6 +15,7 @@ class Ticket{
                     if(num >0){
                     System.out.println(Thread.currentThread().getName()+"卖出第"+num+"张票");
                     num --;}
+                    
 
                 } catch (Exception e) {
                     e.printStackTrace();
