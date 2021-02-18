@@ -7,14 +7,15 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 class Ticket{
-     int num = 100;
+     int num = 1000;
     Lock lock = new ReentrantLock();
     public void sell(){
         lock.lock();
                 try {
-                    if(num >0){
+                    while (num >0){
                     System.out.println(Thread.currentThread().getName()+"卖出第"+num+"张票");
-                    num --;}
+                    num --;
+                   }
                     
 
                 } catch (Exception e) {
@@ -28,7 +29,7 @@ public class TicketExample {
 
     public static void main(String[] args) {
         Ticket ticket = new Ticket();
-        for (int i=0;i<3;i++){
+        for (int i=0;i<13;i++){
             new Thread(()->{
                 for (;;){
                     if(ticket.num ==0){
