@@ -6,9 +6,10 @@ public class Test {
 
 
     public static void main(String[] args) {
-         int n=13;
-        System.out.println(8/3);
-        System.out.println(8%3);
+         int i=128;
+         Integer b = 128;
+         Integer c =128;
+        System.out.println(c==b);
 
 
 
