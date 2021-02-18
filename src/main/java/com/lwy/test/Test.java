@@ -14,14 +14,8 @@ import java.util.function.Consumer;
 public class Test {
     public static void main(String[] args) throws InterruptedException {
 
-        TimeUnit.NANOSECONDS.sleep(4);     //4纳秒
-        TimeUnit.MICROSECONDS.sleep(4);    //4微秒
-        TimeUnit.MILLISECONDS.sleep(4);   //4毫秒
-        TimeUnit.SECONDS.sleep(4);  //4s
-        TimeUnit.HOURS.sleep(4);    //4小时
-        TimeUnit.DAYS.sleep(4);    //4天
-        String s ="0123456789";
-        System.out.println(s.substring(3,5));
+
+
 
     }
 }
