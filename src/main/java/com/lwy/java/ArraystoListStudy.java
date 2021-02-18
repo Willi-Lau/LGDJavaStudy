@@ -59,12 +59,17 @@ public class ArraystoListStudy {
 
     public static void main(String[] args) {
         List list = Arrays.asList(1,2,3,4);
-        System.out.println("list长度 "+list.size());
+        System.out.println("list长度 "+list.size());    //长度4
 
         //Arrays.asList 不建议使用基本类型
         int[] a = {1,2,3,4};
         List list2 = Arrays.asList(a);
         System.out.println("list2长度 "+list2.size()+"\n");    //长度1
+
+        //原因
+       // 在Arrays.asList种，接收参数时，八大基本类型不能作为集合泛型的参数，所以传递进来的是一个int[]类型的参数，这里只有一个int[] 所以长度就是1
+//        int[] arr = {1,5,3,7,9};
+//        List<int[]> ints2 = Arrays.asList(arr);
 
         list2.forEach(System.out::print);
 
@@ -75,7 +80,7 @@ public class ArraystoListStudy {
 
         //接下来会报错   Arrays.asList 不能执行 add remove 否则会报错
 
-          list.add(123);
+        list.add(123);
 
 
     }

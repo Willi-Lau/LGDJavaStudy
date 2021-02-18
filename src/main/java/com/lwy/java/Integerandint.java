@@ -7,6 +7,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.IntConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Integerandint {
     public static void main(String[] args) {
@@ -28,11 +29,13 @@ public class Integerandint {
 
 
 
+
         //Integer[] 转 List<Integer>
         List<Integer> integers1 = Arrays.asList(arr1);
         List<Integer> collect = Arrays.stream(arr1).collect(Collectors.toList());
         //List<Integer> 转 Integer[]
         Integer[] objects = integerList.toArray(new Integer[0]);
+
 
     }
 
