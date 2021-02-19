@@ -11,12 +11,10 @@ import java.util.concurrent.Semaphore;
 public class CyclicBarrierStudy {
     public static void main(String[] args) throws InterruptedException {
         //完成2个H一个O 输出一个水
-
-
         Water water = new Water();
-        CountDownLatch countDownLatch = new CountDownLatch(300);
+        CountDownLatch countDownLatch = new CountDownLatch(3000);
         //线程部分
-        for (int j = 0; j < 100; j++) {
+        for (int j = 0; j < 1000; j++) {
             new Thread(() -> {
 
                 try {
@@ -30,7 +28,7 @@ public class CyclicBarrierStudy {
 
             }).start();
         }
-        for (int j = 0; j < 200; j++) {
+        for (int j = 0; j < 2000; j++) {
             new Thread(() -> {
 
                 try {
@@ -46,7 +44,7 @@ public class CyclicBarrierStudy {
         }
         //统计次数
          countDownLatch.await();
-         System.out.println(water.tim);
+         System.out.println("总共制作了"+water.tim+"个H2O");
     }
 
 
@@ -55,8 +53,8 @@ public class CyclicBarrierStudy {
 class Water{
     int tim = 0;
     //两个H可以开启一个O  一个O可以开启两个H
-    Semaphore semaphoreH = new Semaphore(2);
-    Semaphore semaphoreO = new Semaphore(0);
+    Semaphore semaphoreH = new Semaphore(0);
+    Semaphore semaphoreO = new Semaphore(2);
     CyclicBarrier cyclicBarrierflag = new CyclicBarrier(3, ()->{
         System.out.println("make success H2O");
         tim ++;
