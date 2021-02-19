@@ -37,6 +37,14 @@ public class Integerandint {
         Integer[] objects = integerList.toArray(new Integer[0]);
 
 
+        Integer i = 128;
+        Integer j = 128;
+        System.out.println(i == j);
+        Integer i1 = 127;
+        Integer j1 = 127;
+        System.out.println(i1 == j1);
+
+
     }
 
     public void speak(String s){

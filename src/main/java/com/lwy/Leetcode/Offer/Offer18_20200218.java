@@ -44,9 +44,31 @@ public class Offer18_20200218 {
 
 
 class Solution_Offer18 {
-    public ListNode_Offer18 deleteNode(ListNode_Offer18 head, int val) {
+    public ListNode deleteNode(ListNode head, int val) {
+        //空判断
+        if(head == null){
+            return head;
+        }
+        //删除的是头节点
+        if(head.val == val)
+            return head.next;
+        ListNode flag = head;
+        //找到要删除的节点的上一个，把他下一个节点替换成下下个
+        //注意不要用head循环 会报错 用一个自定义的falg接收一下在循环
+        while(flag.next != null && flag.next.val != val){
 
 
-        return new ListNode_Offer18(12);
+            flag = flag.next;
+
+
+
+        }
+        flag.next = flag.next.next;
+
+
+
+
+
+        return head;
     }
 }
