@@ -11,13 +11,8 @@ import java.util.function.Consumer;
 
 public class Test {
     public static void main(String[] args) throws InterruptedException {
-     List list = new ArrayList();
-     for (int i=0;i<999;i++){
-         new Thread(()->{
-             list.add(" {"+UUID.randomUUID().toString().substring(0,8)+"} ");
-             System.out.println(list);
-         },"线程"+Integer.toString(i)).start();
-     }
+
+
 
 
 
