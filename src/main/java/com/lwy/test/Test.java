@@ -13,9 +13,20 @@ public class Test {
     public static void main(String[] args) throws InterruptedException {
 
 
+     Nell nell = new Nell();
+
+
+   
 
 
 
 
+    }
+}
+
+
+class Nell{
+    public void changeStr(String str){
+        str = "+++";
     }
 }
