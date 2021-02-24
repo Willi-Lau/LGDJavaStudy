@@ -25,5 +25,6 @@ public class BlockingQueueStudy {
         queue.remove();
         //删除 设置阻塞超时
         queue.poll(3,TimeUnit.SECONDS);
+
     }
 }
