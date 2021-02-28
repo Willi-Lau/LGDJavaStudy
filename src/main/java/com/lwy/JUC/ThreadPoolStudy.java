@@ -44,9 +44,11 @@ public class ThreadPoolStudy {
 
         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(4, 5, 1L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
         for (int i=0;i<30;i++)
+            //线程池使用 传入 Runnable
         poolExecutor.execute(()->{
             System.out.println("hahah         "+ Thread.currentThread().getName());
         });
+        //线程池停止
         poolExecutor.shutdown();
 
     }
