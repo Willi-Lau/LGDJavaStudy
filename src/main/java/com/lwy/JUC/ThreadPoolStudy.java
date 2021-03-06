@@ -33,7 +33,7 @@ public class ThreadPoolStudy {
         /**
          * 线程池7大参数  底层源码
          * public ThreadPoolExecutor(int corePoolSize,    //线程池中常驻核心线程数
-         *         int maximumPoolSize,           //线程池最大线程数，此值必须大于1
+         *         int maximumPoolSize,           //线程池最大线程数，此值必须大于1  CPU密集型 线程数+1 IO密集型
          *         long keepAliveTime,            //多余线程存活时间，线程池中线程超过corePoolSize ,存活时间超过 keepAliveTime ，多余线程会呗销毁
          *         TimeUnit unit,               //keepAliveTime 的单位
          *         BlockingQueue<Runnable> workQueue,    //任务队列，被提交没有被执行的队列
@@ -141,6 +141,9 @@ public class ThreadPoolStudy {
         } finally {
             DiscardPolicy.shutdown();
         }
+
+        //获取电脑最大线程数
+        System.out.println(Runtime.getRuntime().availableProcessors());
 
     }
 }

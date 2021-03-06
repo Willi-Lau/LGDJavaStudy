@@ -10,7 +10,7 @@
         <module name="LGDJavaStudy" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8">
       <module name="LGDJavaStudy" target="8" />
     </bytecodeTargetLevel>
   </component>
