@@ -11,6 +11,9 @@ public class Redis01 {
         Jedis jedis = new Jedis("127.0.0.1",6379);
         //设置密码
         jedis.auth("12345");
+        //测试连通性
         System.out.println(jedis.ping());
+
+
     }
 }
