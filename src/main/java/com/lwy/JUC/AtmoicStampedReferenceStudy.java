@@ -38,10 +38,7 @@ public class AtmoicStampedReferenceStudy {
         /**
          * ABA的解决
          */
-        /**
-         * AtomicStampedReference 参数 ： 初始值，版本号
-         */
-
+        //AtomicStampedReference 参数 ： 初始值，版本号
         AtomicStampedReference<Integer> integerAtomicStampedReference = new AtomicStampedReference<>(100,1);
         new Thread(()->{
             //模拟出ABA问题 先变成101 再改回100    这里加入版本号      参数：原始值 变更值 原始版本号 变更后的版本号
