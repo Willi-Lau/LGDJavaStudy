@@ -150,10 +150,5 @@ class JedisPoolUtil{
         }
     }
 
-
-
-
-
-
 }
 

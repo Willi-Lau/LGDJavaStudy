@@ -6,14 +6,26 @@ public class Test {
 
 
     public static void main(String[] args) {
-         int i=128;
-         Integer b = 128;
-         Integer c =128;
-        System.out.println(c==b);
 
 
+        A a = new B();
+        B b = new B();
+        a.show(b);
 
 
     }
 
+}
+
+class A{
+    public void show(A m){
+        System.out.println("a and a");
+    }
+}
+
+class B extends A{
+
+    public void show(A m){
+        System.out.println("B and a");
+    }
 }
