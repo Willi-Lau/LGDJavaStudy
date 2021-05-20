@@ -4,7 +4,7 @@ package com.lwy.study202105.java;
 /**
  *  @time 20210518 22:45
  */
-public class Java01 {
+public class Java01JvmStack {
     public static void main(String[] args) {
         /**
          *  java 自增变量

@@ -1,6 +1,6 @@
 package com.lwy.study202105.java;
 
-public class Java03 {
+public class Java03JvmStack {
     public static void main(String[] args) {
         int i=1,m=1;
         i = i++;
