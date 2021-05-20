@@ -1,18 +1,18 @@
 package com.lwy.study202105.java;
 
 public class JavaVariable {
-    static int s;     //类变量 全局变量 类公有
-    int i;       //成员变量 每一个实例化的对象自己私有
-    int j;       //成员变量 每一个实例化的对象自己私有
+    static int s;     //类变量 全局变量 类公有  存在方法区
+    int i;       //成员变量 每一个实例化的对象自己私有   存在heap
+    int j;       //成员变量 每一个实例化的对象自己私有   存在heap
     {         //静态代码块   再实例化类是才会调用 再构造方法前被调用
-        int i=1;
+        int i=1;    //局部变量 存在 stack
         i++;          //就近原则 执行第八行 i
         j++;          //执行成员变量
         s++;          //执行成员变量
     }
     public void test(int j){
         i++;    //执行成员变量
-        j++;     //就近原则 执行传递进来的j
+        j++;     //就近原则 执行传递进来的j  //局部变量 存在 stack
         s++;    //执行成员变量
     }
 
