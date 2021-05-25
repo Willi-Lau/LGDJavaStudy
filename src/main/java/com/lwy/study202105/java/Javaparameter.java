@@ -21,7 +21,7 @@ public class Javaparameter {
         System.out.println(m);
         System.out.println(s);
         System.out.println(arr[0]);
-        System.out.println(student.i);
+        System.out.println(student.i); 
     }
 
     public static void change(int i,Integer m,String s,int[] arr,Student student){
