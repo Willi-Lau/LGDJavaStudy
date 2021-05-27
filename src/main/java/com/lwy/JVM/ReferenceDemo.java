@@ -1,6 +1,10 @@
 package com.lwy.JVM;
 
+import sun.awt.windows.WPrinterJob;
+
 import java.lang.ref.SoftReference;
+import java.lang.ref.WeakReference;
+import java.util.WeakHashMap;
 
 /**
  * 四种引用  强引用 弱引用 虚引用  软引用
@@ -18,11 +22,15 @@ import java.lang.ref.SoftReference;
  *         对于只有软引用的对象来说
  *             当系统内存足够的时候 不会被回收
  *             当系统内部不足的时候 会被回收
+ *  弱引用 WeakReference
+ *         不管内存是否足够都执行GC 使用java.lang.ref.WeakReference执行
+ *  虚引用 PhantomReference
+ *      顾名思义，就是形同虚设，与
  */
 public class ReferenceDemo {   //  -XX:InitialHeapSize=5m -XX:MaxHeapSize=5m -XX:+PrintGCDetails
     public static void main(String[] args) {
         /**
-         * 强引用部分 Reference
+         * 强引用部分 Strong Reference
          */
             Object o1 = new Object(); //强引用
             Object o2 = o1;  //强引用
@@ -38,14 +46,39 @@ public class ReferenceDemo {   //  -XX:InitialHeapSize=5m -XX:MaxHeapSize=5m -XX
             o3 = null;
             System.gc();  //垃圾回收，内存够用 o4不被回收 不够就被回收了
             try{
-                Byte[] b =new Byte[100 * 1024 * 1024];   //现在设置的 最大heap大小为5m 实例化一个 100m的 btye数组 就会OOM 软引用就会被清理
+//                Byte[] b =new Byte[100 * 1024 * 1024];   //现在设置的 最大heap大小为5m 实例化一个 100m的 btye数组 就会OOM 软引用就会被清理
             }catch (OutOfMemoryError e){
                 e.printStackTrace();
             }
             finally {
                 System.out.println(o3);
-                System.out.println(o4.get());   //这里是获取软引用引用的对象
+                System.out.println(o4.get());   //这里是获取软引用引用的对象 只有OOM才会执行清楚
             }
+        /**
+         * 弱引用 WeakReference
+         */
+            Object o5 = new Object();
+            WeakReference <Object> o6 = new WeakReference<>(o5);
+            o5 = null;
+            System.gc();
+            System.out.println(o5);
+            System.out.println(o6.get());   //这里是获取弱引用引用的对象  无论内存满不满都会被清除
+        /**
+         *  WeakHashMap
+         */
+            WeakHashMap<Integer,Integer> weakHashMap = new WeakHashMap();
+
+            weakHashMap.put(new Integer(5),new Integer(8));
+            System.out.println(weakHashMap);
+            System.gc();   //执行GC后 weakhashmap里引用类型的所有东西都会被清理
+            System.out.println( "***********"+weakHashMap);
+
+
+
+
+
+
+
 
 
 
