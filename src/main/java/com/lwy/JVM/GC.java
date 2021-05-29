@@ -30,6 +30,7 @@ import java.util.concurrent.TimeUnit;
  *
  *         查看所有的jvm家底 包括自己设置的和默认值的：
  *             java -XX:+PrintFlagsInitial
+ *  查看默认GC收集器：    java -XX:+PrintCommandLineFlags -version
  */
 public class GC {
     public static void main(String[] args) throws Exception{
