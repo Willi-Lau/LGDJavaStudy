@@ -51,41 +51,21 @@ public class Test {
 
     }
 
-
-
+    static int a = 1;
+    static int b = 2;
     public static void main(String[] args) throws InterruptedException {
-            Test t = new Test();
-
-//        new Thread(()->{
-//            try {
-//                t.three();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }).start();
-//
-//                new Thread(()->{
-//                    try {
-//                        t.one();
-//                    } catch (InterruptedException | BrokenBarrierException e) {
-//                        e.printStackTrace();
-//                    }
-//                }).start();
-//
-//        new Thread(()->{
-//            try {
-//                t.two();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }).start();
-            ThreadLocal<Integer> integerThreadLocal = new ThreadLocal<>();
-            integerThreadLocal.set(123);
-            integerThreadLocal.set(1123);
-            integerThreadLocal.set(11123);
-             System.out.println(integerThreadLocal.get());
-
-
+        //static String c = "3";
+//        String c = "3";
+//        System.out.println(a+b+c);
+//        CountDownLatch countDownLatch = new CountDownLatch(1);
+//        CyclicBarrier cyclicBarrier = new CyclicBarrier(2);
+//        Lock lock = new ReentrantLock(true);
+//        Semaphore semaphore = new Semaphore(10);
+//        List list = new ArrayList();
+        String str1="abcde";
+        String str2= str1.substring (4);
+        String str3=new String (str2);
+        String str4=new String (str2.toCharArray ());
     }
 
 
