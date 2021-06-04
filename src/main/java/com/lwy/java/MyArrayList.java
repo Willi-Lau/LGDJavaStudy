@@ -10,6 +10,12 @@ import java.util.Arrays;
  * 手写 ArrayList 次数1
   * @Param: null
  *  @return
+ *  扩容： 扩容前判断是否需要套扩容，并且有初始化赋值 在grow1  然后扩容 grow 扩容每次 * 1.5 就是 >>1 在不够就直接把预期值写上 Arrays.Copyof
+ *  初始化： 空参 不创建 等第一次 add时候在创建数组
+ *          有参   指定大小 创建
+ *  add: System.arraycopy
+ *  remove:System.arraycopy
+ *
  */
 public class MyArrayList {
 
@@ -63,7 +69,7 @@ public class MyArrayList {
      * 判断是否是初始化 初始化就赋值 10
      */
     public void grow1(int num){
-        if(elementData == DEFAULT_ELEMENTDATA){
+        if(elementData == DEFAULT_ELEMENTDATA){  //这块就是第一次创建没有指定大小 在这里指定大小 指定初始默认值为10
              num = Math.max(num,DEFAULT_SIZE);
         }
         if(num > elementData.length)    //必须加这句话 等空间不够在扩容
