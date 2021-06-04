@@ -3,7 +3,13 @@ package com.lwy.java;
 import java.util.Arrays;
 
 /**
- * 尝试手写ArrayList java 8 版本
+ * create by: liuweiyi
+ * description: TODO
+ * create time: 2021/6/3 10:03
+ *
+ * 手写 ArrayList 次数1
+  * @Param: null
+ *  @return
  */
 public class MyArrayList {
 

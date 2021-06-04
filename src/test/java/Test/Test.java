@@ -66,6 +66,7 @@ public class Test {
         String str2= str1.substring (4);
         String str3=new String (str2);
         String str4=new String (str2.toCharArray ());
+        CopyOnWriteArrayList list = new CopyOnWriteArrayList();
     }
 
 
