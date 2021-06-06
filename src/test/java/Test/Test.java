@@ -62,11 +62,29 @@ public class Test {
 //        Lock lock = new ReentrantLock(true);
 //        Semaphore semaphore = new Semaphore(10);
 //        List list = new ArrayList();
-        String str1="abcde";
-        String str2= str1.substring (4);
-        String str3=new String (str2);
-        String str4=new String (str2.toCharArray ());
-        CopyOnWriteArrayList list = new CopyOnWriteArrayList();
+//        String str1="abcde";
+//        String str2= str1.substring (4);
+//        String str3=new String (str2);
+//        String str4=new String (str2.toCharArray ());
+//        CopyOnWriteArrayList list = new CopyOnWriteArrayList();
+//        LinkedList linkedList = new LinkedList();
+        ArrayList list1 = new ArrayList(15);
+        int size = list1.size();
+        System.out.println(size);
+        list1.add(12);
+        System.out.println(list1.size());
+
+        Integer i = new Integer(100);
+//        HashSet set = new LinkedHashSet();
+//        set.add(11111);
+//        set.add(22222);
+//        set.add(33333);
+//        set.add(44444);
+//        set.forEach(System.out::println);
+//
+//
+//        HashMap map = new HashMap();
+
     }
 
 

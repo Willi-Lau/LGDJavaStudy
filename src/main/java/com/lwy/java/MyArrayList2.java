@@ -29,7 +29,7 @@ public class MyArrayList2 {
      */
     public MyArrayList2(int index){
         if(index >0)
-        {size = index;
+        {//size = index;
         elementDate = new Object[index];}
         else if(index == 0){
             elementDate = DEFAULT_ELEMENTDATA;

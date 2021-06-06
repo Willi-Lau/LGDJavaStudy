@@ -21,7 +21,7 @@ public class MyCopyOnWriteArrayList {
 
     final transient ReentrantLock lock = new ReentrantLock();
 
-    private transient Object[] array;
+    private volatile transient Object[] array;
 
     public void setArray(Object[] arr){
         this.array = arr;
