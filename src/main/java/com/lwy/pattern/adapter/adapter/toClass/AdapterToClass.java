@@ -13,6 +13,7 @@ public class AdapterToClass extends TranslatorDemo implements WatchTV{
         return translator(watchTV.watch());     //适配器的核心 通过继承来实现
     }
 
+
     public AdapterToClass(WatchTV watchTV) {
         this.watchTV = watchTV;
     }
