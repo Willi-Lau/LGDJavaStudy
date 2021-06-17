@@ -68,13 +68,13 @@ public class Test {
 //        String str4=new String (str2.toCharArray ());
 //        CopyOnWriteArrayList list = new CopyOnWriteArrayList();
 //        LinkedList linkedList = new LinkedList();
-        ArrayList list1 = new ArrayList(15);
-        int size = list1.size();
-        System.out.println(size);
-        list1.add(12);
-        System.out.println(list1.size());
-
-        Integer i = new Integer(100);
+//        ArrayList list1 = new ArrayList(15);
+//        int size = list1.size();
+//        System.out.println(size);
+//        list1.add(12);
+//        System.out.println(list1.size());
+//
+//        Integer i = new Integer(100);
 //        HashSet set = new LinkedHashSet();
 //        set.add(11111);
 //        set.add(22222);
@@ -83,9 +83,26 @@ public class Test {
 //        set.forEach(System.out::println);
 //
 //
-//        HashMap map = new HashMap();
+//        HashMap map = new HashMap(32);
+//        map.put(1,1);
+//        System.out.println(map.size());
+//
+//            ConcurrentMap map1 = new ConcurrentHashMap();
+        double q = 1.2d;
+        double p = 1.2d;
+        System.out.println(q == p);
 
     }
+
+//    public static String str = "test";
+//    static{
+//        if(str == "test"){
+//            System.out.println("==");
+//        }
+//        if("test".equals(str)){
+//            System.out.println("equals");
+//        }
+//    }
 
 
 }
