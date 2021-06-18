@@ -28,6 +28,7 @@ public class ProxyJDK<T> implements InvocationHandler {
                 new ProxyJDK<T>(target)       //具体增强逻辑
         );
 
+
         return (T)o;
     }
 
