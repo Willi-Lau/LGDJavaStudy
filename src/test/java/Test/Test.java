@@ -92,17 +92,37 @@ public class Test {
         double p = 1.2d;
         System.out.println(q == p);
 
+        String s = null;
+
+
+        try{
+            s = "刘伟艺";
+            int i = 1/0;
+        }
+        catch(Exception m){
+            m.printStackTrace();
+        }
+        finally {
+            System.out.println(s);
+        }
+
+        int m = 0;
+        //  int short long double float boolean char byte
+        //   4    2      8     8    4     1       2     1
+
     }
 
-//    public static String str = "test";
-//    static{
-//        if(str == "test"){
-//            System.out.println("==");
-//        }
-//        if("test".equals(str)){
-//            System.out.println("equals");
-//        }
-//    }
+        float fun(int a,int b){
+            return 0;
+        }
+
+
+        float fun(int a,float b){
+            return 0;
+        }
+
+
+
 
 
 }
