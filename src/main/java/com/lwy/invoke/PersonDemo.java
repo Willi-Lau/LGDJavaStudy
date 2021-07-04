@@ -16,14 +16,14 @@ public class PersonDemo {
 
 }
 class Test{
-    public static void main(String[] args) {
-        Set<PersonDemo> persons = new HashSet<>();
-        PersonDemo person = new PersonDemo("张三");
-        persons.add(person);
-        person.setName("李四");
-        persons.forEach(System.out::println);
-        System.out.println(persons.contains(person));
-    }
+//    public static void main(String[] args) {
+//        Set<PersonDemo> persons = new HashSet<>();
+//        PersonDemo person = new PersonDemo("张三");
+//        persons.add(person);
+//        person.setName("李四");
+//        persons.forEach(System.out::println);
+//        System.out.println(persons.contains(person));
+//    }
 }
 // 下面程序中，jvm在进行过一次Minor GC后，上述代码在年轻代内存中保留的字符个数：
 // public class NowCoder {
