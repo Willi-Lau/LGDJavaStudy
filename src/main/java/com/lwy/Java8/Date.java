@@ -5,6 +5,9 @@ import java.util.Calendar;
 
 public class Date {
 
+    public Date(long currentTime) {
+    }
+
     public static void main(String[] args) {
         Calendar cal=Calendar.getInstance();
 

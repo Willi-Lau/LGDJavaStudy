@@ -11,20 +11,15 @@ public class Heapsort {
             System.out.print(i);
         }
     }
-
-
     public static void heapSort(int arr[]){
-        for(int i = arr.length/2 -1; i>= 0;i--){
+        for(int i = arr.length/2 -1; i>= 0;i--){              //构建堆
             arrHeap(arr,i,arr.length);
         }
-        for (int i = arr.length-1; i >0 ; i--) {
+        for (int i = arr.length-1; i >0 ; i--) {          //排序
             swap(arr,i,0);
             arrHeap(arr,0,i);
         }
-
-    }
-
-    /**
+    }/**
      * 调整大顶堆
      * @param arr
      * @param i 当前节点
@@ -46,7 +41,6 @@ public class Heapsort {
         arr[i] = temp;//将temp值放到最终的位置
 
     }
-
     public static void swap(int arr[],int i,int j){
         int temp = arr[i];
         arr[i] = arr[j];
@@ -111,3 +105,55 @@ class Heapsort2{
 
 }
 
+class HeapSort3{
+    static int len ;
+    public static void main(String[] args) {
+        int[] arr = {3,5,7,9,1,2,6,4,8};
+        len = arr.length;
+        HeapSort(arr);
+        for (int i:arr){
+            System.out.println(i);
+        }
+
+    }
+    public static void HeapSort(int[] arr){
+        if(len<1){
+            return;
+        }
+        //构建大顶堆
+        build(arr);
+        //排序
+        while (len >0){
+            swap(arr,0,len-1);       //现在顶上的数字是最大的 交换到最后一位上
+            len--;
+            cheap(arr,0);        //再次重构 让顶上的数字再最大
+        }
+    }
+    public static void build(int[] arr){
+        for (int i=(len /2) -1;i>=0;i--){
+            cheap(arr,i);
+        }
+    }
+    public static void cheap(int[] arr,int index){         //重构 保证顶上是最大的数字
+        int max = index;
+        if(index * 2 < len && arr[index * 2] > arr[max]){
+            max = index * 2;
+        }
+
+        if(index * 2 +1< len && arr[index * 2 +1] > arr[max]){
+            max = index * 2 +1;
+        }
+        if(max != index){
+            swap(arr,index,max);
+            cheap(arr,max);
+        }
+    }
+    public static void swap(int[] arr,int x,int y){
+        int t = arr[x];
+        arr[x] = arr[y];
+        arr[y] = t;
+    }
+
+
+
+}

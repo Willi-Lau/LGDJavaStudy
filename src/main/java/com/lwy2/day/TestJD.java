@@ -1,4 +1,4 @@
-package com.lwy2.wangyi;
+package com.lwy2.day;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -24,6 +24,14 @@ import java.util.Scanner;
  *     关闭时候 3 不受影响
  *
  */
+/**
+ * create by: liuweiyi
+ * description: TODO
+ * create time: 2021/9/12 10:37
+ * 
+  * @Param: null
+ * @return 
+ */
 public class TestJD {
     static LinkedList<Integer>[] depend = null;
     static LinkedList<Integer>[] undepend = null;
@@ -35,22 +43,22 @@ public class TestJD {
         undepend = new LinkedList[num+1];
         set = new HashSet<>();
 
-        for(int i=1;i<num+1;i++){
+        for(int i=1;i<num+1;i++){            //初始化依赖关系图 被依赖关系图
             depend[i] = new LinkedList<>();
             undepend[i] = new LinkedList<>();
         }
-        for (int i=1;i<num+1;i++){
+        for (int i=1;i<num+1;i++){          //输入
             int now = sc.nextInt();
             for(int j=0;j<now;j++){
                 int kw = sc.nextInt();
-                depend[i].add(kw);
+                depend[i].add(kw);  //构建依赖关系图
                 undepend[kw].add(i);
             }
 
         }
 
         int t = sc.nextInt();
-        for (int i=0;i<t;i++){
+        for (int i=0;i<t;i++){          //输入状态
             int sleep = sc.nextInt();
             int linux = sc.nextInt();
             if(sleep == 0){
@@ -79,7 +87,7 @@ public class TestJD {
 
     public static void  stop(int num){
         set.remove(num);
-        LinkedList<Integer> linkedList = undepend[num];  //依赖表
+        LinkedList<Integer> linkedList = undepend[num];  //被依赖关系表
         if(linkedList != null){
             for (int i:linkedList){
                 if(set.contains(i))

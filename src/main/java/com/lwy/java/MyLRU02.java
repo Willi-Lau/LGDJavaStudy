@@ -133,6 +133,7 @@ public class MyLRU02 {
             list.del(node);
             list.put(node);
         }
+        else
         {
             if(map.size() == flag){   //坑位满了，需要删除元素
                 Node last = list.getLast();

@@ -3,6 +3,8 @@ package com.lwy.JUC;
 
 import lombok.SneakyThrows;
 
+import java.util.ArrayList;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -13,11 +15,27 @@ import java.util.concurrent.TimeUnit;
  *          然后就可以查询死锁原因了
  */
 public class DeadLock {
+    static ArrayList<String> list =new ArrayList();
     public static void main(String[] args) {
-        String lock1 = "lcok1";
-        String lock2 = "lcok2";
-        new Thread(new Lock1(lock1,lock2),"AAA").start();
-        new Thread(new Lock1(lock2,lock1),"BBB").start();
+
+        while(true){
+            list.add(UUID.randomUUID().toString());
+            list.add(UUID.randomUUID().toString());
+            list.add(UUID.randomUUID().toString());
+            list.add(UUID.randomUUID().toString());
+            list.add(UUID.randomUUID().toString());
+            list.add(UUID.randomUUID().toString());
+            list.add(UUID.randomUUID().toString());
+            list.add(UUID.randomUUID().toString());
+            list.add(UUID.randomUUID().toString());
+
+
+        }
+
+//        String lock1 = "lcok1";
+//        String lock2 = "lcok2";
+//        new Thread(new Lock1(lock1,lock2),"AAA").start();
+//        new Thread(new Lock1(lock2,lock1),"BBB").start(); Pause
     }
 }
 class Lock1 implements Runnable{
@@ -40,6 +58,7 @@ class Lock1 implements Runnable{
             synchronized (this.Lock2){
                 System.out.println(Thread.currentThread().getName()+"自己持有"+Lock2+"尝试获取"+Lock1);
                 TimeUnit.SECONDS.sleep(1);
+               ThreadLocal l = new ThreadLocal();
             }
         }
     }
