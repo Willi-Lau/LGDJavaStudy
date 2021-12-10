@@ -1,6 +1,7 @@
 package com.lwy.Leetcode.Thread;
 
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -129,6 +130,7 @@ class FooBar3 {
 
     Lock lock = new ReentrantLock();
 
+
     private int n;
 
     public FooBar3(int n) {
@@ -136,7 +138,6 @@ class FooBar3 {
     }
 
     public void foo(Runnable printFoo) throws InterruptedException {
-
 
         for (int i = 0; i < n; i++) {
 

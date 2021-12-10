@@ -7,7 +7,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 public class Test {
@@ -16,42 +18,57 @@ public class Test {
     static String a = "6";
     static double b = 1;
     public static void main(String[] args) throws Exception {
-        HashMap<String,String> map = new HashMap<>();
 
-
-
-
-
-
-            new Thread(()->{
-                for (int i=0;i<250;i++){
-                    map.put(Integer.toString(i),Integer.toString(i));
-                }
-            }).start();
-            new Thread(()->{
-                for (int i=250;i<500;i++){
-                    map.put(Integer.toString(i),Integer.toString(i));
-                }
-            }).start();
-            new Thread(()->{
-                for (int i=500;i<750;i++){
-                    map.put(Integer.toString(i),Integer.toString(i));
-                }
-            }).start();
-            new Thread(()->{
-                for (int i=750;i<1000;i++){
-                    map.put(Integer.toString(i),Integer.toString(i));
-                }
-            }).start();
-            TimeUnit.SECONDS.sleep(1);
-            int m = 0;
-            for (int i=0;i<1000;i++){
-                if (!Integer.toString(i).equals(map.get(Integer.toString(i)))){
-                    System.out.println("---------"+i+" : "+map.get(Integer.toString(i)));
-                    m++;
-                }
+//        一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。
+//        在范围0～n-1内的n个数字中有且只有一个数字不在该数组中，请找出这个数字。
+//        示例 1:
+//        输入: [0,1,3]
+//        输出: 2
+//        示例 2:
+//        输入: [0,1,2,3,4,5,6,7,9]
+//        输出: 8
+        int[] arr = {0,1,2,3,4,5,6,7,8,10};
+        for(int i = 0 ; i < arr.length ; i++){
+            if(i == 0 && arr[i] != 0){
+                System.out.println(0);
+                break;
             }
-            System.out.println(m+"  "+map.size());    //map 会在put时，新增不是替换时执行 Szie++,如果小于期望值就是在扩容时候执行put最后没加到新的集合
+            else if(i > 0 && arr[i] - 1 != arr[i-1]){
+                System.out.println(arr[i] - 1);
+                break;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 

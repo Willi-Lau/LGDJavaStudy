@@ -35,7 +35,7 @@ public class DeadLock {
 //        String lock1 = "lcok1";
 //        String lock2 = "lcok2";
 //        new Thread(new Lock1(lock1,lock2),"AAA").start();
-//        new Thread(new Lock1(lock2,lock1),"BBB").start(); Pause
+//        new Thread(new Lock1(lock2,lock1),"BBB").start();
     }
 }
 class Lock1 implements Runnable{
