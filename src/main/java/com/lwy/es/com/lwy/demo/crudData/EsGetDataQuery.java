@@ -10,13 +10,17 @@ import org.elasticsearch.action.update.UpdateResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.unit.Fuzziness;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.RangeQueryBuilder;
+import org.elasticsearch.search.aggregations.AggregationBuilder;
+import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.sort.SortOrder;
+import redis.clients.jedis.ZParams;
 
 import javax.naming.directory.SearchResult;
 import java.io.IOException;
@@ -193,13 +197,52 @@ public class EsGetDataQuery {
         });
         System.out.println("******************************");
 
+        /**
+         * 模糊查询
+         *
+         */
+        // 创建索引 - 请求对象
+        SearchRequest searchRequest7 = new SearchRequest();
+        //设置索引名字
+        searchRequest7.indices("happy");
+        //设置查询条件
+        SearchSourceBuilder builder6 =  new SearchSourceBuilder();
+        //模糊查询条件 查询 name 为张的 差一个匹配能成功 例如条件是张三 减少张三i任意一个字符如果能匹配就算成功 比如张麻子 三狗 张三1 这种都可以
+        builder6.query( QueryBuilders.fuzzyQuery("name","张三").fuzziness(Fuzziness.ONE));
+        searchRequest7.source(builder6);
+        //执行
+        SearchResponse response7 = client.search(searchRequest7, RequestOptions.DEFAULT);
 
+        //结果 遍历所有的内容 json形式
+        response7.getHits().forEach((searchHit)->{
+            System.out.println(searchHit.getSourceAsString());
+        });
+        System.out.println("******************************");
 
+        /**
+         * 聚合查询 最大值查询 分组查询
+         */
+        // 创建索引 - 请求对象
+        SearchRequest searchRequest8 = new SearchRequest();
+        //设置索引名字
+        searchRequest8.indices("happy");
+        //设置查询条件
+        SearchSourceBuilder builder7 =  new SearchSourceBuilder();
+        //设置聚合操作 求最大值
+        // AggregationBuilder aggregationBuilder = AggregationBuilders.max("maxAge").field("age");
+        //分组查询
+        AggregationBuilder aggregationBuilder = AggregationBuilders.terms("groupAge").field("age");
+        builder7.aggregation(aggregationBuilder);
 
+        searchRequest8.source(builder7);
+        //执行
+        SearchResponse response8 = client.search(searchRequest8, RequestOptions.DEFAULT);
 
-
-
-
+        //结果 遍历所有的内容 json形式
+        response8.getHits().forEach((searchHit)->{
+            System.out.println(searchHit.getSourceAsString());
+        });
+        System.out.println("******************************");
 
 
         // 关闭客户端连接

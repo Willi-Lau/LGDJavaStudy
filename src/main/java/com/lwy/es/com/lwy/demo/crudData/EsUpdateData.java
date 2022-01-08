@@ -27,7 +27,7 @@ public class EsUpdateData {
         UpdateRequest updateRequest = new UpdateRequest();
         //设置索引的名字
         updateRequest.index("happy").id("1001");
-       //修改的内容
+        //修改的内容
         updateRequest.doc(XContentType.JSON,"sex","女");
         UpdateResponse update = client.update(updateRequest, RequestOptions.DEFAULT);
 
